@@ -24,7 +24,7 @@ public class Sprite {
         try {
             this.image = new Image(new FileInputStream(imageName));
 
-            this.position = new Vector2D(10, 11);
+            this.position = new Vector2D(0,0);
             this.size = new Size(image.getWidth(), image.getHeight());
         }
         catch (FileNotFoundException e){
@@ -34,12 +34,12 @@ public class Sprite {
     }
     public Sprite(){}
 
-    public void setPostion(Vector2D position){
+    public void setPosition(Vector2D position){
         this.position=position;
     }
 
     public void render(GraphicsContext gc){
-        gc.drawImage(this.image,position.x,position.y,size.width,size.height);
+        gc.drawImage(this.image , position.x , position.y , size.width , size.height);
 
     }
 }

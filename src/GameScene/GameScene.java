@@ -1,5 +1,6 @@
 package GameScene;
 
+import Geometric.Vector2D;
 import Map.TileMap;
 import Model.Enemy;
 import config.Config;
@@ -122,5 +123,7 @@ public class GameScene extends Scene{
 
     private void newGame(){
         map = new TileMap();
+        enemy = new Enemy("res/enemy1.png");
+        enemy.setPosition(new Vector2D(320,0));
     }
 }
