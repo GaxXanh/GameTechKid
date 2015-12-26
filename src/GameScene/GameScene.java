@@ -117,6 +117,6 @@ public class GameScene extends Scene{
     }
 
     private void newGame(){
-
+        map = new TileMap();
     }
 }
