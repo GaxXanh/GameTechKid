@@ -6,6 +6,5 @@ package Model;
  * Class: OOP2
  * Project: GameTechKid
  */
-public class Sprite {
-    
+public class Sprite{
 }
