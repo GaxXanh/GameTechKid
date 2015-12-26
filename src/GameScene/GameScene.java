@@ -1,6 +1,7 @@
 package GameScene;
 
 import Map.TileMap;
+import Model.Enemy;
 import config.Config;
 import javafx.animation.AnimationTimer;
 import javafx.event.EventHandler;
@@ -31,6 +32,7 @@ public class GameScene extends Scene{
     long lastUpdateTime = 0;
 
     TileMap map;
+    Enemy enemy;
 
     public GameScene() {
         super(new Group());
