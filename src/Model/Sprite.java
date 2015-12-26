@@ -7,4 +7,5 @@ package Model;
  * Project: GameTechKid
  */
 public class Sprite {
+    
 }
