@@ -1,6 +1,7 @@
 package GameScene;
 
 import Map.TileMap;
+import Model.Enemy;
 import config.Config;
 import javafx.animation.AnimationTimer;
 import javafx.event.EventHandler;
@@ -30,7 +31,9 @@ public class GameScene extends Scene{
     int fps;
     long lastUpdateTime = 0;
 
+    //Khai báo các objects
     TileMap map;
+    Enemy enemy;
 
     public GameScene() {
         super(new Group());
@@ -110,6 +113,7 @@ public class GameScene extends Scene{
         gc.fillRect(0, 0, Config.WindowProperties.WINDOW_WIDTH, Config.WindowProperties.WINDOW_HEIGHT);
 
         // our code will come here
+        enemy.render(gc);
 
         // for debug purpose
         gc.setStroke(Color.AQUA);

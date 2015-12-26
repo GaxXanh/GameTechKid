@@ -6,5 +6,11 @@ package Model;
  * Class: OOP2
  * Project: GameTechKid
  */
-public class GameObject {
+public class GameObject extends Sprite{
+    public GameObject(String imageName){
+        super(imageName);
+    }
+    public GameObject(){}
+
+
 }
