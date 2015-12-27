@@ -2,6 +2,7 @@ package Model;
 
 import Geometric.Size;
 import Geometric.Vector2D;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
@@ -33,6 +34,16 @@ public class Sprite {
 
     }
     public Sprite(){}
+
+    public Rectangle2D getBounds(){
+        return new Rectangle2D(position.x,position.y,size.width,size.height);
+    }
+
+    public boolean intersects(Sprite s){
+        return s.getBounds().intersects(this.getBounds());
+    }
+
+
 
     public void setPosition(Vector2D position){
         this.position=position;

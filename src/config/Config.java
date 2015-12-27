@@ -16,5 +16,7 @@ public class Config {
 
     public static class EnemyProperties{
         public final static int SOLIDER_VELOCITY=80;
+        public final static int BULLET_VELOCITY=200;
     }
+
 }

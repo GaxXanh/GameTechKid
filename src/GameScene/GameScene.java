@@ -2,6 +2,7 @@ package GameScene;
 
 import Geometric.Vector2D;
 import Map.TileMap;
+import Model.Bullet;
 import Model.Enemy;
 import Model.Soliders;
 import config.Config;
@@ -36,6 +37,7 @@ public class GameScene extends Scene{
     //Khai báo các objects
     TileMap map;
     Soliders solider;
+    Bullet bullet;
 
     public GameScene() {
         super(new Group());
@@ -100,9 +102,10 @@ public class GameScene extends Scene{
         lastUpdateTime = currentTime;
 
         // logic code come here
-
-        solider.update(dt);
-
+        if (solider.isAlive(bullet)==true) {
+            solider.update(dt);
+            bullet.update(dt);
+        }
         // debug
         if (debugInterval >= 30) {
             debugInterval = 0;
@@ -116,7 +119,10 @@ public class GameScene extends Scene{
         gc.fillRect(0, 0, Config.WindowProperties.WINDOW_WIDTH, Config.WindowProperties.WINDOW_HEIGHT);
 
         // our code will come here
-        solider.render(gc);
+        if (solider.isAlive(bullet)==true) {
+            solider.render(gc);
+            bullet.render(gc);
+        }
 
         // for debug purpose
         gc.setStroke(Color.AQUA);
@@ -127,5 +133,9 @@ public class GameScene extends Scene{
         map = new TileMap();
         solider = new Soliders("res/enemy1.png");
         solider.setPosition(new Vector2D(320,0));
+        //test
+        bullet = new Bullet("res/bullet.png");
+        bullet.setPosition(new Vector2D(320,640));
+
     }
 }

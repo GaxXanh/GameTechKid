@@ -4,34 +4,26 @@ import Geometric.Vector2D;
 import config.Config;
 
 /**
- * Created by duc on 26/12/2015.
+ * Created by duc on 27/12/2015.
  */
-public class Soliders extends Enemy {
-    public Soliders(String imageName){
+public class Bullet extends Enemy{
+
+    public Bullet(String imageName){
         super(imageName);
     }
 
     Vector2D newVelocity = Vector2D.zero;
     Vector2D velocityStep;
     Vector2D towerPosition = new Vector2D(320,640);
-
+    Vector2D v1 = new Vector2D(320,200);
     protected boolean isMove=true;
-
-    public boolean isAlive(Bullet bullet){
-        if(this.intersects(bullet)) return false;
-        else return true;
-    }
 
     @Override
     void updateVelocity(double dt) {
-        //newVelocity = new Vector2D(0,+Config.EnemyProperties.SOLIDER_VELOCITY);
-            if(this.position.distance(towerPosition)<200) {
-                isMove=false;
-                newVelocity = Vector2D.zero;
-            }else newVelocity = new Vector2D(0,+Config.EnemyProperties.SOLIDER_VELOCITY);
-
-
+        newVelocity = new Vector2D(towerPosition.getCos(v1) * Config.EnemyProperties.BULLET_VELOCITY,
+                towerPosition.getSin(v1) * Config.EnemyProperties.BULLET_VELOCITY);
     }
+
     @Override
     void updatePosition(double dt) {
         velocityStep = newVelocity.multiByScalar(dt);
