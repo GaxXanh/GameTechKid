@@ -16,7 +16,10 @@ public class Bullet extends Enemy{
     Vector2D velocityStep;
     Vector2D towerPosition = new Vector2D(320,640);
     Vector2D v1 = new Vector2D(320,200);
-    protected boolean isMove=true;
+    public boolean isExist(Sprite s){
+        if(this.intersects(s)) return false;
+        else return true;
+    }
 
     @Override
     void updateVelocity(double dt) {
@@ -35,4 +38,7 @@ public class Bullet extends Enemy{
         updateVelocity(dt);
         updatePosition(dt);
     }
+
+
 }
+

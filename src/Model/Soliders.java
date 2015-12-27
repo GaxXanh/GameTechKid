@@ -17,8 +17,8 @@ public class Soliders extends Enemy {
 
     protected boolean isMove=true;
 
-    public boolean isAlive(Bullet bullet){
-        if(this.intersects(bullet)) return false;
+    public boolean isAlive(Sprite s){
+        if(this.intersects(s)) return false;
         else return true;
     }
 

@@ -94,6 +94,13 @@ public class GameScene extends Scene{
 
     private void handleEvents(List<String> input) {
 
+        /*if (input.contains("SPACE")) {
+            bullet = new Bullet("res/bullet.png");
+            bullet.setPosition(new Vector2D(320,640));
+
+        }*/
+
+
     }
 
     private void update(long currentTime) {
@@ -104,6 +111,8 @@ public class GameScene extends Scene{
         // logic code come here
         if (solider.isAlive(bullet)==true) {
             solider.update(dt);
+        }
+        if(bullet.isExist(solider)){
             bullet.update(dt);
         }
         // debug
@@ -119,11 +128,12 @@ public class GameScene extends Scene{
         gc.fillRect(0, 0, Config.WindowProperties.WINDOW_WIDTH, Config.WindowProperties.WINDOW_HEIGHT);
 
         // our code will come here
-        if (solider.isAlive(bullet)==true) {
+        if (solider.isAlive(bullet)) {
             solider.render(gc);
+        }
+        if(bullet.isExist(solider)){
             bullet.render(gc);
         }
-
         // for debug purpose
         gc.setStroke(Color.AQUA);
         gc.strokeText("FPS: " + String.valueOf(this.fps), this.getWidth() - 80, this.getHeight() - 30);
@@ -133,7 +143,7 @@ public class GameScene extends Scene{
         map = new TileMap();
         solider = new Soliders("res/enemy1.png");
         solider.setPosition(new Vector2D(320,0));
-        //test
+        //test bullet
         bullet = new Bullet("res/bullet.png");
         bullet.setPosition(new Vector2D(320,640));
 

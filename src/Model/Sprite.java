@@ -41,6 +41,7 @@ public class Sprite {
 
     public boolean intersects(Sprite s){
         return s.getBounds().intersects(this.getBounds());
+
     }
 
 
