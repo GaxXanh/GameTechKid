@@ -1,5 +1,7 @@
 package Geometric;
 
+import config.Config;
+
 /**
  * Created by duc on 26/12/2015.
  */
@@ -23,6 +25,12 @@ public class Vector2D {
         double a = this.x - v1.x;
         double b = this.y - v1.y;
         return Math.sqrt(a * a + b * b);
+    }
+    public double getSin(Vector2D v1){
+        return (v1.y-this.y) / this.distance(v1);
+    }
+    public double getCos(Vector2D v1){
+        return (v1.x-this.x) / this.distance(v1);
     }
     public static final Vector2D zero = new Vector2D(0,0);
 
