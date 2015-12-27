@@ -15,7 +15,7 @@ public class Bullet extends Enemy{
     Vector2D newVelocity = Vector2D.zero;
     Vector2D velocityStep;
     Vector2D towerPosition = new Vector2D(320,640);
-    Vector2D v1 = new Vector2D(200,200);
+    Vector2D v1 = new Vector2D(320,200);
     protected boolean isMove=true;
 
     @Override

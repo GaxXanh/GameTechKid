@@ -14,7 +14,13 @@ public class Soliders extends Enemy {
     Vector2D newVelocity = Vector2D.zero;
     Vector2D velocityStep;
     Vector2D towerPosition = new Vector2D(320,640);
+
     protected boolean isMove=true;
+
+    public boolean isAlive(Bullet bullet){
+        if(this.intersects(bullet)) return false;
+        else return true;
+    }
 
     @Override
     void updateVelocity(double dt) {

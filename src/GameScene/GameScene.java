@@ -102,10 +102,10 @@ public class GameScene extends Scene{
         lastUpdateTime = currentTime;
 
         // logic code come here
-
-        solider.update(dt);
-        bullet.update(dt);
-
+        if (solider.isAlive(bullet)==true) {
+            solider.update(dt);
+            bullet.update(dt);
+        }
         // debug
         if (debugInterval >= 30) {
             debugInterval = 0;
@@ -119,8 +119,11 @@ public class GameScene extends Scene{
         gc.fillRect(0, 0, Config.WindowProperties.WINDOW_WIDTH, Config.WindowProperties.WINDOW_HEIGHT);
 
         // our code will come here
-        solider.render(gc);
-        bullet.render(gc);
+        if (solider.isAlive(bullet)==true) {
+            solider.render(gc);
+            bullet.render(gc);
+        }
+
         // for debug purpose
         gc.setStroke(Color.AQUA);
         gc.strokeText("FPS: " + String.valueOf(this.fps), this.getWidth() - 80, this.getHeight() - 30);
