@@ -42,4 +42,5 @@ public class Sprite {
         gc.drawImage(this.image , position.x , position.y , size.width , size.height);
 
     }
+    public void update(double dt){}
 }

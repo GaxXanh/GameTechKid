@@ -3,6 +3,7 @@ package GameScene;
 import Geometric.Vector2D;
 import Map.TileMap;
 import Model.Enemy;
+import Model.Soliders;
 import config.Config;
 import javafx.animation.AnimationTimer;
 import javafx.event.EventHandler;
@@ -34,7 +35,7 @@ public class GameScene extends Scene{
 
     //Khai báo các objects
     TileMap map;
-    Enemy enemy;
+    Soliders solider;
 
     public GameScene() {
         super(new Group());
@@ -100,6 +101,7 @@ public class GameScene extends Scene{
 
         // logic code come here
 
+        solider.update(dt);
 
         // debug
         if (debugInterval >= 30) {
@@ -114,7 +116,7 @@ public class GameScene extends Scene{
         gc.fillRect(0, 0, Config.WindowProperties.WINDOW_WIDTH, Config.WindowProperties.WINDOW_HEIGHT);
 
         // our code will come here
-        enemy.render(gc);
+        solider.render(gc);
 
         // for debug purpose
         gc.setStroke(Color.AQUA);
@@ -123,7 +125,7 @@ public class GameScene extends Scene{
 
     private void newGame(){
         map = new TileMap();
-        enemy = new Enemy("res/enemy1.png");
-        enemy.setPosition(new Vector2D(320,0));
+        solider = new Soliders("res/enemy1.png");
+        solider.setPosition(new Vector2D(320,0));
     }
 }

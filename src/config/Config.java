@@ -13,4 +13,8 @@ public class Config {
         public final static int WINDOW_WIDTH = 640;
         public final static int WINDOW_HEIGHT = 640;
     }
+
+    public static class EnemyProperties{
+        public final static int SOLIDER_VELOCITY=80;
+    }
 }
